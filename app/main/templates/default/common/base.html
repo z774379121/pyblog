@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="{% block desc %}to be Great JJ{% endblock %}">
+        <meta name="author" content="">
+        <link rel="icon" href="{{ url_for('main.static', filename='images/house.ico')}}">
+
+        <title>{% block title %}小杰的Blog{% endblock %}</title>
+        {% block css %}
+            <!-- 新 Bootstrap 核心 CSS 文件 -->
+            <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+            <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+            <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+            <!-- 个性化主题文件 -->
+            <link href="{{ url_for('main.static', filename='css/code_default.css')}}" rel="stylesheet">
+            <link href="{{ url_for('main.static', filename='css/offcanvas.css')}}" rel="stylesheet">
+        {% endblock %}
+
+        {% block js %}
+            <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+            <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+			<script src="{{ url_for('main.static', filename='js/jquery.goup.min.js')}}"></script>
+			<script type="text/javascript">
+					$(document).ready(function () {
+						$.goup({
+							trigger: 100,
+							bottomOffset: 150,
+							locationOffset: 100,
+							<!--title: 'This is a Demo',-->
+							titleAsText: true
+						});
+					});
+			</script>
+
+            <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+            <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+            <!-- 个性化 js 文件 -->
+            <script src="{{ url_for('main.static', filename='js/offcanvas.js')}}"></script>
+			<!-- 个性化 访问量jsjs 文件 -->
+			<script src="http://jerry-cdn.b0.upaiyun.com/hit-kounter/hit-kounter-0.1.1.js"></script>
+            {{ moment.include_moment(local_js=url_for('admin.static', filename='js/moment-with-locales.js')) }}
+            {{ moment.lang('zh-cn') }}
+        {% endblock %}
+
+    </head>
+
+    <body>
+        {% include 'default/common/header.html' %}
+        {% block welcome %}
+        {% endblock %}
+		
+        <div class="container">
+            <div class="row row-offcanvas row-offcanvas-right">
+                <div class="col-xs-12 col-sm-9">
+                    <p class="pull-right visible-xs">
+                        <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">导航</button>
+                    </p>
+                    <div class="row">
+                        {% block content %}
+                        {% endblock %}
+                    </div><!--/row-->
+                </div><!--/.col-xs-12.col-sm-9-->
+				{% include 'default/common/sidebar.html' %}
+            </div><!--/row-->
+            {% include 'default/common/footer.html' %}
+        </div><!--/.container-->
+		
+    </body>
+</html>

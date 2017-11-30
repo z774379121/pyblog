@@ -1,0 +1,80 @@
+<div class="col-xs-6 col-sm-3 sidebar-offcanvas small " id="sidebar">
+    {% include 'default/common/search.html' %}
+    <ul class="nav nav-pills">
+        <li role="presentation" class="col-xs-12">
+            <h3>分类目录</h3>
+            <br>
+        </li>
+        {% for category in g.categorys %}
+            <li role="presentation" class="col-xs-12">
+                <p><i class="glyphicon glyphicon-hand-right"></i><a href="{{ url_for('main.category', c=category.name) }}"> {{ category.name }}</a></p>
+            </li>
+        {% endfor %}
+    </ul>
+    <ul class="nav nav-pills">
+        <li role="presentation" class="col-lg-12">
+            <h3 >文件归档</h3>
+            <br>
+        </li>
+        {% for tg in g.time_tag %}
+            <li role="presentation" class="col-lg-12">
+                <p><i class="glyphicon glyphicon-hand-right"></i><a href="{{ url_for('main.archives', time_tag=tg) }}"> {{ tg }}</a></p>
+            </li>
+        {% endfor %}
+    </ul>
+    <ul class="nav nav-pills">
+        <li role="presentation" class="col-lg-12">
+            <h3>近期文章</h3>
+            <br>
+        </li>
+        {% for article in g.recent_articles %}
+            <li role="presentation" class="col-lg-12">
+                <p><i class="glyphicon glyphicon-hand-right"></i><a href="{{ url_for('main.article', pid=article.id) }}"> {{ article.title|title }}</a></p>
+            </li>
+        {% endfor %}
+    </ul>
+    <ul class="nav nav-pills">
+        <li role="presentation" class="col-lg-12">
+            <h3>标签</h3>
+            <br>
+        </li>
+        <li role="presentation" class="col-lg-12">
+            {% for tag in g.tags %}
+                <span class="label label-warning"><a href="{{ url_for('main.tag', t=tag.name) }}">{{ tag.name }}</a></span>
+            {% endfor %}
+        </li>
+    </ul>
+    <ul class="nav nav-pills">
+        <li role="presentation" class="col-lg-12">
+            <h3>简介</h3>
+            <br>
+        </li>
+        <li>
+            <p>人丑就要多读书，没钱就要多锻炼。</p>
+        </li>
+    </ul>
+    <ul class="nav nav-pills">
+        <li role="presentation" class="col-lg-12">
+            <h3>友情链接</h3>
+            <br>
+        </li>
+            <li role="presentation" class="col-lg-12">
+                <p><a href="https://cn.bing.com/"  target="_black"> bing</a></p>
+				<p><a href="http://cuiqingcai.com/" target="_black"> 崔庆才--爬虫教程</a></p>
+				<p><a href="https://xratzh.com/2017/07/19/bwg/" target="_black"> 搬瓦工搭建SSR&魔改BBR/锐速</a></p>
+				<p><a href="http://www.wolframalpha.com/"  target="_black"> 实用工具(墙外)</a></p>
+				<p><a href="http://www.pythontutor.com/"  target="_black"> 可视化编程</a></p>
+				<p><a href="http://www.oldversion.com/"  target="_black"> 各版软件下载</a></p>
+            </li>
+    </ul>
+    <ul class="nav nav-pills">
+        <li role="presentation" class="col-lg-12">
+			<h3>Q我</h3>
+            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=774379121&site=qq&menu=yes"><img border="0" src="http://oyvgzaycw.bkt.clouddn.com/chat_012.png" alt="点我" title="点我"></a>         
+        </li>
+       
+    </ul>
+    </ul>
+	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1271201713'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1271201713%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+	</div>
+</div><!--/.sidebar-offcanvas-->
