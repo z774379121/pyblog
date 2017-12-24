@@ -1,6 +1,6 @@
 # pyblog
 
-https://j2j.club
+<a href=http://j2j.club target="_blank">http://j2j.club</a>
 
 **12-24 增加了视频模块，视频源是youtube的 要翻墙才能看，看不到就算了，就当是个人收藏夹了
 
