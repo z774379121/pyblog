@@ -80,6 +80,10 @@ class WriteArticleForm(Form):
     tags = StringField(u'标签')
     submit = SubmitField(u'提交')
 
+class AddVideoForm(Form):
+    title = StringField(u'标题')
+    video_id = StringField(u'视频ID')
+    submit = SubmitField(u'提交')
 
 class EditArticleForm(Form):
     title = StringField(u'标题')

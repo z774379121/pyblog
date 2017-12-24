@@ -6,8 +6,8 @@ from . import admin
 from datetime import datetime
 from ..import db
 from .forms import AddAdminForm, LoginForm, AddUserForm, DeleteUserForm, EditUserForm, WriteArticleForm, \
-    EditArticleForm, DeleteArticleForm, ChangePasswordForm, BaidutongjiForm, AddFolderFOrm
-from ..models import User, Category, Tag, Article, Plugin, Finder
+    EditArticleForm, DeleteArticleForm, ChangePasswordForm, BaidutongjiForm, AddFolderFOrm, AddVideoForm
+from ..models import User, Category, Tag, Article, Plugin, Finder, Videobase
 from ..decorators import admin_required, author_required, tag_split
 import os
 from werkzeug.utils import secure_filename
@@ -101,6 +101,19 @@ def article_edit(article_id):
         return redirect(url_for('admin.article_settings'))
 
     return render_template('edit_article.html', editArticleForm=edit_article_form)
+
+
+@admin.route('/addvideo', methods=['GET', 'POST'])
+@login_required
+def addvideo():
+    add_video_from = AddVideoForm(prefix='addvideo')
+    if add_video_from.validate_on_submit():
+        a = Videobase(video_id=add_video_from.video_id.data, title=add_video_from.title.data)
+        db.session.add(a)
+        db.session.commit()
+
+    return render_template('addvideo.html', addVideoForm=add_video_from)	
+
 
 
 @admin.route('/write', methods=['GET', 'POST'])

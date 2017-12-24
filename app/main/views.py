@@ -4,7 +4,7 @@ from flask import render_template, redirect, request, current_app, url_for, g
 from . import main
 #from .._customs import CustomRenderer
 #import misaka as m
-from ..models import Article, Tag, Category, TagSpaces, Plugin
+from ..models import Article, Tag, Category, TagSpaces, Plugin, Videobase
 from .forms import SearchForm
 from datetime import datetime
 
@@ -13,6 +13,7 @@ from datetime import datetime
 def before_request():
     g.tags = Tag.query.all()
     g.categorys = Category.query.all()
+    g.video = Videobase.query.all()
     g.recent_articles = Article.query.order_by(Article.timestamp.desc()).limit(5).all()
     articles = Article.query.order_by(Article.timestamp.desc()).all()
     time_tag = []
@@ -93,3 +94,8 @@ def search_results(query):
 @main.route('/about')
 def about():   
     return render_template('default/about.html')
+	
+
+@main.route('/video')
+def video():
+    return render_template('default/video.html')

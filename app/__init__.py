@@ -9,6 +9,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_pagedown import PageDown
 from config import config
+from extensions import youtube_ext
 
 # mail = Mail()
 moment = Moment()
@@ -32,6 +33,7 @@ def create_app(config_name):
     pagedown.init_app(app=app)
     #md.init_app(app=app)
     login_manager.init_app(app=app)
+    youtube_ext.init_app(app=app)
 
     # 注册蓝本 main
     from .main import main as main_blueprint

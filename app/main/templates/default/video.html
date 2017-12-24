@@ -1,0 +1,40 @@
+{% extends 'default/common/base.html' %}
+{% import "default/macros/_patination.html" as page_macros %}
+{% block content %}
+<div class="container-fluid">
+
+                <div class="row">
+                    {% for video in g.video %}
+                        <div class="col-lg-6">
+                            <div class="demo-box">
+                                <a>
+                                    <p>{{ youtube(video.video_id)}}</p>
+                                </a>
+
+                                <h6>{{ video.title }}</h6>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+</div>
+
+<!--<div class="container-fluid">-->
+	<!--<div class="row-fluid">-->
+        <!--{% for video in g.video %}-->
+            <!--<div class="span6">-->
+                <!--<p>-->
+                    <!--{{ youtube(video.video_id)}}-->
+                <!--</p>-->
+                <!--<p><h4>{{ video.title }}</h4></p>-->
+            <!--</div>-->
+        <!--{% endfor %}-->
+	<!--</div>-->
+<!--</div>-->
+<!--{% for video in g.video %}-->
+    <!--<p>{{ video.title }}</p>-->
+    <!--<br>-->
+    <!--<p>-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</p>-->
+    <!--<p>{{ youtube(video.video_id)}}</p>-->
+    <!--<p>-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</p>-->
+<!--{% endfor %}-->
+{% endblock %}

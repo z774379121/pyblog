@@ -69,6 +69,14 @@ class Category(db.Model):
         return '<Name %r>' % self.name
 
 
+class Videobase(db.Model):
+    __tablename__ = 'videobase'
+    id = db.Column(db.Integer, primary_key=True)
+    video_id = db.Column(db.Text)
+    title = db.Column(db.Text)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+
+
 class TagSpaces(db.Model):
     __tablename__ = 'tag_spaces'
     tag_id = db.Column(db.Integer, db.ForeignKey('tags.id'), primary_key=True)

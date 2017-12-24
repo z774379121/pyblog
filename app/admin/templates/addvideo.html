@@ -1,0 +1,33 @@
+{% extends 'common/base.html' %}
+{% block content %}
+<div class="write-article">
+    <div class="row">
+        <form method="post" role="form">
+            {{ addVideoForm.hidden_tag() }}
+            <div class="col-xs-12 col-sm-10">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
+                    {{ addVideoForm.title(class="form-control", placeholder="文章标题", required="", autofocus="")}}
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-2" style="padding-top: 10px; padding-bottom: 10px">
+
+            </div>
+
+            <div class="col-xs-12 col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
+                    {{ addVideoForm.video_id(class="form-control", required="", placeholder="id")}}
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="pull-right">
+                    <input class="btn btn-default" type="reset" value="重 置">
+                    {{ addVideoForm.submit(class="btn btn-primary")}}
+                </div>
+            </div>
+        </form>vim
+    </div>
+    {{ pagedown.include_pagedown() }}
+</div>
+{% endblock %}

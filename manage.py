@@ -2,7 +2,7 @@
 
 import os
 from app import create_app, db
-from app.models import User, Category, Article, Tag, TagSpaces, Plugin
+from app.models import User, Category, Article, Tag, TagSpaces, Plugin, Videobase
 from flask_script import Manager, Shell
 from flask_migrate import Migrate, MigrateCommand
 
@@ -12,7 +12,7 @@ migrate = Migrate(app=app, db=db)
 
 
 def make_shell_context():
-    return dict(app=app, db=db, User=User, Category=Category, Article=Article, Tag=Tag, TagSpaces=TagSpaces, Plugin=Plugin)
+    return dict(app=app, db=db, User=User, Category=Category, Article=Article, Tag=Tag, TagSpaces=TagSpaces, Plugin=Plugin, Videobase=Videobase)
 
 manager.add_command("shell", Shell(make_context=make_shell_context))
 manager.add_command('db', MigrateCommand)
