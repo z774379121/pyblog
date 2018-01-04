@@ -1,0 +1,27 @@
+{% extends 'common/base.html' %}
+{% import "default/macros/_patination.html" as page_macros %}
+{% block content %}
+<div class="admin-content">
+    <div class="row">
+        {% for video in videos.items %}
+        <div class="col-xs-12">
+            <h3>{{ video.id }}</h3>
+            <span class="pull-right small"> <a  href="javascript:delete_video_{{ video.id }}()">删除 </a>
+            {% if current_user.is_author() or current_user.is_admin() %}
+                <form method="post" role="form" id="delete_video_{{ video.id }}">
+                    {{ deleteVideoForm.hidden_tag() }}
+                    {{ deleteVideoForm.video_id(class="hidden", value=video.id) }}
+                </form>
+                <script type="text/javascript">
+                   function delete_video_{{ video.id }}(){
+                       $("#delete_video_{{ video.id }}").submit() ;
+                   }
+                </script>
+            {% endif %}
+
+        </div>
+        {% endfor %}
+    </div>
+    {{ page_macros.pagination_widget(videos, 'admin.video_settings') }}
+</div>
+{% endblock %}

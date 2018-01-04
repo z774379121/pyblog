@@ -6,7 +6,8 @@ from . import admin
 from datetime import datetime
 from ..import db
 from .forms import AddAdminForm, LoginForm, AddUserForm, DeleteUserForm, EditUserForm, WriteArticleForm, \
-    EditArticleForm, DeleteArticleForm, ChangePasswordForm, BaidutongjiForm, AddFolderFOrm, AddVideoForm
+    EditArticleForm, DeleteArticleForm, ChangePasswordForm, BaidutongjiForm, AddFolderFOrm, AddVideoForm, \
+    DeleteVideoForm
 from ..models import User, Category, Tag, Article, Plugin, Finder, Videobase
 from ..decorators import admin_required, author_required, tag_split
 import os
@@ -61,6 +62,20 @@ def login():
 # def theme_settings():
 #
 #     return render_template('themes.html')
+
+
+@admin.route('/video-settings', methods=['GET', 'POST'])
+@login_required
+def video_settings():
+    delete_video_form = DeleteVideoForm(prefix='delete_article')
+    if delete_video_form.validate_on_submit():
+        video = Videobase.query.get(int(delete_video_form.video_id.data))
+        db.session.delete(video)
+
+    page = request.args.get('page', 1, type=int)
+    videos = Videobase.query.order_by(Videobase.timestamp.desc()).paginate(page, per_page=current_app.config['OUSI_POSTS_PER_PAGE'], error_out=False)
+
+    return render_template('videos.html', videos=videos, deleteVideoForm=delete_video_form)
 
 
 @admin.route('/article-settings', methods=['GET', 'POST'])
