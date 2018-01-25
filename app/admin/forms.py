@@ -31,7 +31,7 @@ class AddAdminForm(Form):
 
     def validate_email(self, field):
         if User.query.filter_by(email=field.data).first():
-            raise ValidationError(u'邮箱已被注册！')
+            raise ValidationError(u'邮箱已被注册！！')
 
 
 class ChangePasswordForm(Form):
