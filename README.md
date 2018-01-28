@@ -1,6 +1,7 @@
 # pyblog
 
-<a href=http://j2j.club target="_blank">http://j2j.club</a> --------因为部署在搬瓦工上，所以晚上可能打开速度慢或者直接打不开
+~~<a href=http://j2j.club target="_blank">http://j2j.club</a> --------因为部署在搬瓦工上，所以晚上可能打开速度慢或者直接打不开~~ 
+服务器被墙了 - -，<a href=http://39.108.228.220:8000/ target="_blank">小杰的博客</a>  文章都转移了，凑活着看吧
 
 **12-24 增加了视频模块，视频源是youtube的 要翻墙才能看，看不到就算了，就当是个人收藏夹了
 
