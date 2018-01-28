@@ -16,6 +16,9 @@
 
 ---------------------------
 just clone
+
 pip install -r requirements
+
 python manage.py db init
+
 python manage.py runserver
