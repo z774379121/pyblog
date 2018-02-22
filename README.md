@@ -1,7 +1,7 @@
 # pyblog
 
 ~~<a href=http://j2j.club target="_blank">http://j2j.club</a> --------因为部署在搬瓦工上，所以晚上可能打开速度慢或者直接打不开~~ 
-服务器被墙了 - -，<a href=http://39.108.228.220:8000/ target="_blank">小杰的博客</a>  文章都转移去公众号了，空壳凑活着看吧@.@
+服务器被GFW点赞了 - -，<a href=http://39.108.228.220:8000/ target="_blank">小杰的博客</a>  文章都转移去公众号了，空壳凑活着看吧@.@
 
 ----------------------
 
@@ -25,3 +25,10 @@ pip install -r requirements
 python manage.py db init
 
 python manage.py runserver
+
+-------------
+部署
+
+uwsgi + nginx 
+http://python.jobbole.com/84286/
+
